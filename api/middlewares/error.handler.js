@@ -1,6 +1,6 @@
 function logErrors (err,req,res,next){//se encarga de capturar cualquier error
   console.log('logErrors');
-  console.error(error);
+  console.error(err);
   next(err);
 }
 

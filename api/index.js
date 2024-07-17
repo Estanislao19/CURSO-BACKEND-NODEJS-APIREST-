@@ -9,24 +9,24 @@ const port = 3000;
 
 app.use(express.json())
 
-const whitelist = ['http:localhost:8080','https://myapp.com'];//estos dominios van a tener permiso de  hacer request
-const options = {
-  origin: (origin,callback) => {
-    if(whitelist.includes(origin)){//le pregutnto si ese origen est incluido para hacer permitir el acecesso
-      callback(null,true);
-    }else{
-      callback(new Error('no permitido'));
-    }
-  }
+// const whitelist = ['http:localhost:8080','https://myapp.com'];//estos dominios van a tener permiso de  hacer request
+// const options = {
+//   origin: (origin,callback) => {
+//     if(whitelist.includes(origin)){//le pregutnto si ese origen est incluido para hacer permitir el acecesso
+//       callback(null,true);
+//     }else{
+//       callback(new Error('no permitido'));
+//     }
+//   }
 
-}
-app.use(cors(options));
+// }
+app.use(cors());
 
-app.get('/',(req,res)=>{
+app.get('/api',(req,res)=>{
   res.send('Hello word')
 })
 
-app.get('/nueva-ruta',(req,res)=>{
+app.get('/api/nueva-ruta',(req,res)=>{
   res.send('Hola soy una nueva ruta')
 })
 
